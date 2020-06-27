@@ -2,8 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const app = express();
 
 
@@ -31,7 +30,7 @@ app.get('/', (req, res) => {
     res.send('We are on home route');
 });
 
-
+                                                                                                                                                                                         
 //? APP RUNNING
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
