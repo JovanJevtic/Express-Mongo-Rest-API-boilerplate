@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
     res.send('We are on home route');
 });
 
-                                                                                                                                                                                         
+                    
 //? APP RUNNING
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
