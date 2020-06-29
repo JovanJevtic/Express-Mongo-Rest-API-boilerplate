@@ -6,10 +6,10 @@ const Post = require('../models/Post');
 //? GET ALL POSTS; /posts - GET
 router.get('/', async (req, res) => {
   try {
-    const posts = await Post.find()
-    res.json(posts)
+    const posts = await Post.find();
+    res.json(posts);
   } catch (err) {
-    res.status(500).json({ message: err.message })
+    res.status(500).json({ message: err.message });
   }
 });
 
@@ -18,12 +18,12 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const post = new Post({
     name: req.body.name
-  })
+  });
   try {
     const newPost = await post.save()
-    res.status(201).json(newPost)
+    res.status(201).json(newPost);
   } catch (err) {
-    res.status(400).json({ message: err.message })
+    res.status(400).json({ message: err.message });
   }
 });
 
@@ -31,17 +31,17 @@ router.post('/', async (req, res) => {
 //? DELETE SINGLE POST; /posts/:id - DELETE
 router.delete('/:id', getPost, async (req, res) => {
   try {
-    await res.post.remove()
-    res.json({ message: 'Sucessfully deleted' })
+    await res.post.remove();
+    res.json({ message: 'Sucessfully deleted' });
   } catch (err) {
-    res.status(500).json({ message: err.message })
+    res.status(500).json({ message: err.message });
   }
 });
 
 
 //? GET SINGLE POST; /posts/:id - GET
 router.get('/:id', getPost, (req, res) => {
-  res.json(res.post)
+  res.json(res.post);
 });
 
 
@@ -51,10 +51,10 @@ router.patch('/:id', getPost, async (req, res) => {
     res.post.name = req.body.name
   }
   try {
-    const updatedPost = await res.post.save()
-    res.json(updatedPost)
+    const updatedPost = await res.post.save();
+    res.json(updatedPost);
   } catch (err) {
-    res.status(400).json({ message: err.message })
+    res.status(400).json({ message: err.message });
   }
 })
 

@@ -20,7 +20,6 @@ const postsRouter = require('./routes/posts');
 
 //? MIDDLEWEARS
 app.use(express.json());
-app.use(bodyParser.json());
 
 app.use('/posts', postsRouter); 
 
